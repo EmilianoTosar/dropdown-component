@@ -1,0 +1,180 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Kumbh Sans", sans-serif;
+  padding: 10rem 3rem;
+  margin: 0;
+  background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  color: hsl(238, 29%, 16%);
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.container {
+  background-color: white;
+  border-radius: 2rem;
+  max-width: 56rem;
+  padding: 2.875rem 1.5rem;
+  background-image: url("./images/bg-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 15rem;
+  background-position: center 0%;
+}
+
+.box {
+  display: none;
+}
+
+.img-container {
+  position: relative;
+}
+
+.img-container img {
+  position: absolute;
+  top: -9.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  max-width: 15rem;
+  height: auto;
+}
+
+.accordion-container {
+  padding-top: 7rem;
+}
+
+.accordion-item {
+  padding-top: 1rem;
+  border-bottom: 1px solid hsl(240, 5%, 91%);
+}
+
+.accordion-item h2 {
+  margin-bottom: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 0.875rem;
+  border: none;
+  background: transparent;
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.title.open {
+  font-weight: 700;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 0.625rem;
+  height: 1rem;
+  border: none;
+  background-image: url("./images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  transition: transform 300ms ease-in-out;
+}
+
+.title:hover {
+  color: hsl(14, 88%, 65%);
+}
+
+.title:focus,
+.title:focus-visible {
+  border: none;
+  outline: dashed 1px rgba(0, 0, 0, 0.25);
+}
+
+.title.open::after {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  line-height: 1.4;
+  font-size: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.accordion-collapse {
+  transition: height 300ms ease;
+}
+
+.accordion-collapse.collapse {
+  display: none;
+}
+
+.accordion-collapse.collapsing {
+  height: 0;
+  overflow: hidden;
+}
+
+.accordion-collapse.open {
+  display: block;
+}
+
+/* DESKTOP STYLES*/
+@media (min-width: 56em) {
+  .container {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    padding: 4.375rem 6.25rem 4.375rem 0;
+    background-image: url("./images/bg-pattern-desktop.svg");
+    background-size: 80%;
+    background-position: -210% 100%;
+  }
+
+  .box {
+    display: block;
+    position: absolute;
+    top: 60%;
+    left: 0;
+    transform: translateX(-50%) translateY(-60%);
+    z-index: 1;
+  }
+
+  .img-container,
+  .accordion-container {
+    flex: 1;
+  }
+
+  .img-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .img-container img {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: translateX(-4rem);
+    max-width: 25rem;
+  }
+
+  .accordion-container {
+    padding-top: 0;
+  }
+}
