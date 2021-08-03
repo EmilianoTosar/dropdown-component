@@ -3,7 +3,7 @@ document.querySelectorAll('.title').forEach(item => {
     let accCollapse = item.nextElementSibling;
     console.log('click')
 
-    if(item.classList.contains('collapsing')) {
+    if(!item.classList.contains('collapsing')) {
       if(!item.classList.contains('open')) {
         console.log('toggle accordion btn')
   
